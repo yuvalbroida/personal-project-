@@ -1,0 +1,21 @@
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  echo-security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout AI Repository
+        uses: actions/checkout@v3
+
+      # Echo Context Scanner Integration
+      # Demonstrates a frictionless < 5 minute onboarding motion
+      - name: Run Echo Contextual Scanner
+        uses: echo-security/context-scanner-action@v1.2
+        with:
+          lockfile-path: 'poetry.lock'
+          target-base-image: 'echo-registry/ai-minimal-python:3.11'
+          api-token: ${{ secrets.ECHO_API_TOKEN }}
+          fail-on-critical: true
+          export-json-audit: true
