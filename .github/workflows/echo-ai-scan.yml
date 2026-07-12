@@ -1,6 +1,6 @@
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ \"main\" ]
 
 jobs:
   echo-security-scan:
@@ -9,8 +9,6 @@ jobs:
       - name: Checkout AI Repository
         uses: actions/checkout@v3
 
-      # Echo Context Scanner Integration
-      # Demonstrates a frictionless < 5 minute onboarding motion
       - name: Run Echo Contextual Scanner
         uses: echo-security/context-scanner-action@v1.2
         with:
