@@ -1,8 +1,1 @@
-# Core AI Framework (Contains our simulated Critical CVE)
-langchain-experimental==0.0.14
-
-# Standard Network Library (Contains our simulated High CVE)
-requests==2.31.0
-
-# NEW FEATURE: Local Vector Database
-chromadb==0.4.3
+Pillow==12.0.0
