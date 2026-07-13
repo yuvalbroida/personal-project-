@@ -1,19 +1,19 @@
 on:
   pull_request:
-    branches: [ \"main\" ]
+    branches: [ "main" ]
 
 jobs:
   echo-security-scan:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout AI Repository
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Run Echo Contextual Scanner
-        uses: echo-security/context-scanner-action@v1.2
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-          lockfile-path: 'poetry.lock'
-          target-base-image: 'echo-registry/ai-minimal-python:3.11'
-          api-token: ${{ secrets.ECHO_API_TOKEN }}
-          fail-on-critical: true
-          export-json-audit: true
+          python-version: '3.11'
+
+      # This tells GitHub to directly execute your Python prototype!
+      - name: Run Echo Contextual Scanner
+        run: python echo_mock_engine.py
