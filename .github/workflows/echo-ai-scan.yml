@@ -1,3 +1,5 @@
+name: Echo AI Contextual Supply Chain Scan
+
 on:
   pull_request:
     branches: [ "main" ]
@@ -14,6 +16,5 @@ jobs:
         with:
           python-version: '3.11'
 
-      # This tells GitHub to directly execute your Python prototype!
       - name: Run Echo Contextual Scanner
         run: python echo_mock_engine.py
