@@ -17,4 +17,4 @@ jobs:
           python-version: '3.11'
 
       - name: Run Echo Contextual Scanner
-        run: python echo_mock_engine.py
+        run: python main.py
